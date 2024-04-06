@@ -32,7 +32,7 @@ public class Strawberry : MonoBehaviour
         GetComponent<LineRenderer>().SetPosition(1, _initialPosition);
         GetComponent<LineRenderer>().SetPosition(0, transform.position);
 
-        if (chances < 2) {
+        if (chances < 3) {
 
             if (_birdWasLaunched &&
                 GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1)
@@ -58,6 +58,14 @@ public class Strawberry : MonoBehaviour
 
             
         }
+
+        if (chances == 3) {
+            Debug.Log("Level complete!");
+            FindObjectOfType<SceneLoader>()?.GoToNextScene();
+            chances = 0;
+            return;
+        }
+    
         
     }
 
