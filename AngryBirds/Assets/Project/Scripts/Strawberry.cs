@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Strawberry : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class Strawberry : MonoBehaviour
 
     private static int chances = 0;
 
+    //to create top strawberry bar
+    public Image[] lives;
+    public Sprite fullStrawberry;
+    public Sprite emptyStrawberry;
+
     void Start() {
 
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +34,15 @@ public class Strawberry : MonoBehaviour
 
     private void Update()
     {
+        //set the images for the top bar (I'm confused on how this is working)
+        foreach (Image img in lives)
+        {
+            img.sprite = fullStrawberry;
+        }
+        for (int i = 0; i < chances; i++)
+        {
+            lives[i].sprite = emptyStrawberry;
+        }
     
         GetComponent<LineRenderer>().SetPosition(1, _initialPosition);
         GetComponent<LineRenderer>().SetPosition(0, transform.position);
@@ -65,7 +80,6 @@ public class Strawberry : MonoBehaviour
             chances = 0;
             return;
         }
-    
         
     }
 

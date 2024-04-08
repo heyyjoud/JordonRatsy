@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class Cake : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static int scoreCounter = 0;
+
 
     void OnCollisionEnter2D(Collision2D collision) {
 
         Debug.Log("A collision occurred");
+        scoreCounter++;
+        Debug.Log("Your score is " + scoreCounter);
 
         Collider2D colliderHit = collision.collider;
 
@@ -36,4 +30,6 @@ public class Cake : MonoBehaviour
         }
 
     }
+
+
 }
