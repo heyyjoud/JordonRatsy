@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ScoreManager : MonoBehaviour
 {
     //to create strawberry score bar
@@ -11,9 +12,6 @@ public class ScoreManager : MonoBehaviour
     public Sprite emptyGoldStrawberry;
 
     private int finalScore = Cake.scoreCounter;
-    // Cake.scoreCounter = 0;
-
-    //private int chances = 3; 
 
     void Update()
     {
