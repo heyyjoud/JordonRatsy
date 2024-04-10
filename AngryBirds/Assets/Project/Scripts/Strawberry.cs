@@ -21,6 +21,9 @@ public class Strawberry : MonoBehaviour
     public Sprite fullStrawberry;
     public Sprite emptyStrawberry;
 
+    //sound for strawberry collision
+    public AudioSource audioPlayer;
+
     void Start() {
 
         rb = GetComponent<Rigidbody2D>();
@@ -109,10 +112,19 @@ public class Strawberry : MonoBehaviour
    }
 
     // to make the strawberry stick upon collision
-   private void OnCollisionEnter2D(Collision2D collision) {
+   public void OnCollisionEnter2D(Collision2D collision) {
 
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
+
+
+// sound effect on collision
+        if(collision.gameObject.tag == "CollisionTag"){
+        audioPlayer.Play();
+        
+    }
    }
+
+   
 
 }
