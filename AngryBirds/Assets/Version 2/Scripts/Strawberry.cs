@@ -21,6 +21,9 @@ public class Strawberry : MonoBehaviour
     public Sprite fullStrawberry;
     public Sprite emptyStrawberry;
 
+    public float maxDragDistance = 2f;
+    Vector3 pos;
+
     //sound for strawberry collision
     public AudioSource audioPlayer;
 
@@ -108,7 +111,12 @@ public class Strawberry : MonoBehaviour
    private void OnMouseDrag()
    {
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Mathf.Clamp(x you want clamped, lesser value, larger value)
+        newPosition.x=Mathf.Clamp(newPosition.x, -8, 0);
+        //Mathf.Clamp(x you want clamped, lesser value, larger value)
+        newPosition.y=Mathf.Clamp(newPosition.y, -5, 0);
         transform.position = new Vector3(newPosition.x, newPosition.y);
+        
    }
 
     // to make the strawberry stick upon collision
