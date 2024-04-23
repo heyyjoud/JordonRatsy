@@ -74,17 +74,17 @@ public class LevelSelect : MonoBehaviour
         UpdateLevelUI();
     }
 
-    // Function to change scene by level index
-    public void ChangeSceneByLevelIndex(int levelIndex)
+    // Function to change scene by regular index
+    public void ChangeSceneByIndex(int sceneIndex)
     {
-        if (levelUnlocked[levelIndex])
+        if (sceneIndex >= 0 && sceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(levelIndex + 1); // Assuming level index 0 corresponds to scene index 1 (to skip main menu)
+            SceneManager.LoadScene(sceneIndex);
         }
         else
         {
-            Debug.Log("Level " + levelIndex + " is locked!");
-            // You can display a message or take any other action if the level is locked
+            Debug.Log("Scene index " + sceneIndex + " is out of range!");
+            // You can display a message or take any other action if the scene index is out of range
         }
     }
 }
