@@ -31,3 +31,4 @@ public class SceneLoader : MonoBehaviour
         GoToScene(3);
     }
 }
+
