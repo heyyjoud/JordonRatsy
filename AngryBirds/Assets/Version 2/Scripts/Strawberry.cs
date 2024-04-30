@@ -116,9 +116,9 @@ public class Strawberry : MonoBehaviour
    {
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Mathf.Clamp(x you want clamped, lesser value, larger value)
-        newPosition.x=Mathf.Clamp(newPosition.x, -8, 0);
-        //Mathf.Clamp(x you want clamped, lesser value, larger value)
-        newPosition.y=Mathf.Clamp(newPosition.y, -5, 0);
+        newPosition.x=Mathf.Clamp(newPosition.x, -8, -1);
+        //Mathf.Clamp(y you want clamped, lesser value, larger value)
+        newPosition.y=Mathf.Clamp(newPosition.y, -6, -2);
         transform.position = new Vector3(newPosition.x, newPosition.y);
         
    }
