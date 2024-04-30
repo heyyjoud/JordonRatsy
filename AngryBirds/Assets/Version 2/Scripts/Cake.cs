@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+//Water Icon: Image by Darwin Laganzon from Pixabay
 
 public class Cake : MonoBehaviour
 {
 
     public static int scoreCounter = 0;
-
 
     void OnCollisionEnter2D(Collision2D collision) {
 
@@ -27,7 +28,7 @@ public class Cake : MonoBehaviour
         else if (colliderHit.gameObject.CompareTag("Point3"))
         {
             Debug.Log("Point3");
-        }
+        } 
 
     }
 
