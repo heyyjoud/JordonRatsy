@@ -20,7 +20,9 @@ public class Strawberry : MonoBehaviour
     public Image[] lives;
     public Sprite fullStrawberry;
     public Sprite emptyStrawberry;
-
+    public GameObject targetObject1;
+    public GameObject targetObject2;
+    public GameObject targetObject3;
     public float maxDragDistance = 2f;
     Vector3 pos;
 
@@ -30,7 +32,9 @@ public class Strawberry : MonoBehaviour
     void Start() {
 
         rb = GetComponent<Rigidbody2D>();
-
+        targetObject1.SetActive(false);
+        targetObject2.SetActive(false);
+        targetObject3.SetActive(false);
     }
 
     private void Awake()
@@ -122,17 +126,27 @@ public class Strawberry : MonoBehaviour
     // to make the strawberry stick upon collision
    public void OnCollisionEnter2D(Collision2D collision) {
 
-        rb.velocity = Vector2.zero;
-        rb.isKinematic = true;
+    rb.velocity = Vector2.zero;
+    rb.isKinematic = true;
 
+    if(collision.gameObject.name == "Point1"){
+        targetObject1.SetActive(true);
+    } else if(collision.gameObject.name == "Point2"){
+        targetObject2.SetActive(true);
+    } else if (collision.gameObject.name == "Point3"){
+        targetObject3.SetActive(true);
+    } else {
+        targetObject1.SetActive(false);
+        targetObject2.SetActive(false);
+        targetObject3.SetActive(false);
+    }
 
 // sound effect on collision
-        if(collision.gameObject.tag == "CollisionTag"){
+    if(collision.gameObject.tag == "CollisionTag"){
+        // targetObject1.SetActive(true);
         audioPlayer.Play();
-        
-    }
+        } else {
+            // targetObject1.SetActive(false);
+        }
    }
-
-   
-
 }
